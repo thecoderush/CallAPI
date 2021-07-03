@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+    <script>
+        
+        const url = 'https://jsonplaceholder.typicode.com/users'
+        //Method 1
+        fetch(url)
+            .then(response => {
+                return response.json();
+            })
+            .then(users => {
+                console.log(users);
+            });
+        
+        //Method 2
+        async function getUsers() {
+            let response = await fetch(url);
+            let data = await response.json()
+            return data;
+        }
+        getUsers().then(data => console.log(data))
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
